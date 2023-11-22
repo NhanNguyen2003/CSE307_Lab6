@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem4</title>
+    <script>
+
+        var items = [
+            {
+                "ID": "1",
+                "ProductName": "Laptop",
+                "Quantity": 5,
+                "price": 1200,
+                "image": "img/laptop.jpg"
+            },
+
+            {
+                "ID": "2",
+                "ProductName": "Phone",
+                "Quantity": 10,
+                "price": 800,
+                "image": "img/phone.jpg"
+            },
+            {
+                "ID": "3",
+                "ProductName": "Tablet",
+                "Quantity": 8,
+                "price": 500,
+                "image": "img/tablet.jpg"
+            },
+
+
+        ];
+        function Show() {
+
+            for (i = 0; i < items.length; i++) {
+                document.getElementById('result').innerHTML += ` <div style='flex:10%'>
+                    <p>${items[i].ID}</p>
+                    <p>${items[i].ProductName}</p>
+                    <p>${items[i].Quantity}</p>
+                    <p>${items[i].price} $</p>
+                    <img width=30%
+                    src='${items[i].image}'/>
+                </div>`;
+
+            }
+        }
+        function AddItem() {
+            document.getElementById('result').innerHTML = '';
+            items.push({
+                "ID": "4",
+                "ProductName": "Math",
+                "Quantity": 7,
+                "price": 300,
+                "image": "img/Math.jpg"
+            })
+            for (i = 0; i < items.length; i++) {
+                document.getElementById('result').innerHTML += ` <div style='flex:10%'>
+                    <p>${items[i].ID}</p>
+                    <p>${items[i].ProductName}</p>
+                    <p>${items[i].Quantity}</p>
+                    <p>${items[i].price} $</p>
+                    <img width=30%
+                    src='${items[i].image}'/>
+                </div>`;
+
+            }
+        }
+
+        function findByName() {
+            let productName = document.getElementById('txt').value;
+            let result = '';
+            for (i = 0; i < items.length; i++) {
+                if (items[i].ProductName.includes(productName)) {
+                    result += ` <div style='flex:10%'>
+                    <p>${items[i].ID}</p>
+                    <p>${items[i].ProductName}</p>
+                    <p>${items[i].Quantity}</p>
+                    <p>${items[i].price} $</p>
+                    <img width=30%
+                    src='${items[i].image}'/>
+                </div>`;
+                }
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+
+        function DeleteByID() {
+            let productID = document.getElementById('delete').value;
+            let result = '';
+            for (i = 0; i < items.length; i++) {
+                if (!(items[i].ID.includes(productID))) {
+                    result += ` <div style='flex:10%'>
+                    <p>${items[i].ID}</p>
+                    <p>${items[i].ProductName}</p>
+                    <p>${items[i].Quantity}</p>
+                    <p>${items[i].price} $</p>
+                    <img width=30%
+                    src='${items[i].image}'/>
+                </div>`;
+                }
+            }
+            document.getElementById('result').innerHTML = result;
+        }
+
+
+
+    </script>
+</head>
+
+<body>
+    <div id="result" style="display: flex;">
+
+    </div>
+    <input type="button" value="Show" onclick="Show()">
+    <input type="button" value="Add item" onclick="AddItem()">
+    <div id="Search">
+        <input type="text" id="txt">
+        <input type="button" name="" id="" onclick="findByName()" value="Search">
+    </div>
+    <br>
+    <div id="Delete">
+        <input type="text" name="" id="delete">
+        <input type="button" name="" id="" value="Delete" onclick="DeleteByID()">
+
+    </div>
+
+
+
+</body>
+
+
+</html>

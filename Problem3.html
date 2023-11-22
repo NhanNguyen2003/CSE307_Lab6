@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem3</title>
+
+    <script>
+        function Show() {
+            let book = [
+                {
+                    "title": "Math",
+                    "image": "img/Math.jpg",
+                    "price": 100000
+                },
+
+                {
+                    "title": "Science",
+                    "image": "img/science.jpg",
+                    "price": 250000
+                },
+                {
+                    "title": "Vietnamese",
+                    "image": "img/Vietnamese.jpg",
+                    "price": 200000
+                },
+
+
+            ]
+            book.sort(function (a, b) { return a.price - b.price });
+
+
+            for (i = 0; i < book.length; i++) {
+                document.getElementById('result').innerHTML += ` <div style='flex:50%'>
+                    <p>${book[i].title}</p>
+                    <img id='img' width=100%
+                    src='${book[i].image}'/>
+                    <p id='price'>${book[i].price} VND</p> </div>`;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div id="result" style="display: flex;"></div>
+
+    <input type="button" value="Show" onclick="Show()">
+
+</body>
