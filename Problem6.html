@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem6</title>
+    <script>
+        function isPrime(Num) {
+            if (Num <= 1) {
+                return false;
+            }
+            for (let i = 2; i <= Math.sqrt(Num); i++) {
+                if (Num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function PrintNum() {
+            const Input = document.getElementById('number');
+            const Num = parseInt(Input.value);
+            if (isNaN(Num)) {
+                alert("Please enter a valid positive Interger");
+            } else {
+                const show = document.getElementById('show');
+                show.innerHTML = isPrime(Num);
+
+
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>Prime Check</h1>
+    <div id="Run" style="display: flex;">
+        <a> Enter a valid positive interger N: <input type="text" id="number"></a>
+        <input type="button" name="" id="" onclick="PrintNum()" value="Print Numbers">
+    </div>
+    <div id="show"></div>
+</body>

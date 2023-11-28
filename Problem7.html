@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Problem7</title>
+    <script>
+        function calculateMMSA() {
+            const input = document.getElementById('numbers');
+            const Num = input.value.split(',').map(Number);
+
+            if (Num.some(isNaN)) {
+                alert("Please enter valid numbers separated by commas");
+            } else {
+                const min = Math.min(...Num);
+                const max = Math.max(...Num);
+                const sum = Num.reduce((acc, num) => acc + num, 0);
+                const average = sum / Num.length;
+
+                const result = `Minimum: ${min}<br>Maximum: ${max}<br>Sum: ${sum}<br>Average: ${average.toFixed(2)}`;
+
+                document.getElementById('show').innerHTML = result;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>MMSA of N Numbers</h1>
+    <div id="Run" style="display: flex;">
+        <a> Enter numbers separated by commas: <input type="text" id="numbers"></a>
+        <input type="button" name="" id="" onclick="calculateMMSA()" value="Calculate MMSA">
+    </div>
+    <div id="show"></div>
+</body>
+
+</html>
